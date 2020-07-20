@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/VRChat Examples/UdonExampleScene.unity
+  isLoaded: 1
+  isActive: 1
