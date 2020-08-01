@@ -69,11 +69,12 @@ Shader "FStarVR/2DGradientClouds" {
 				fixed4 n3 = tex2D(_TextureMap, i.uv1.zw);
 
 				fixed4 fbm = saturate(n0 + n1 + n2 + n3 - _Density);
-				col.a = saturate(fbm.xyz * _CloudColor.a * 2);
+				col.a = saturate(fbm.xyz * 2);
 
 				//col.rgb = _CloudColor.rgb;
-				col.rgb = tex2D(_ColorsGradient, float2(col.a, 0.5)).rgb;
-				THIS RIGHT HERE print(material.GetFloat("foo"));
+				col.rgb = tex2D(_ColorsGradient, float2(col.a*0.95, 0.5)).rgb;
+
+				col.a *= saturate(_CloudColor.a);
 
 				return col;
 			}
